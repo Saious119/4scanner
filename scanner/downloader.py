@@ -84,7 +84,8 @@ class downloader:
         """
 
         self.logger.info("{}: Starting download.".format(self.thread_url))
-        while True:
+        running = True
+        while running:
             # Getting the thread's json
             try:
                 thread_json = json.loads(self.get_thread_json())
@@ -148,6 +149,9 @@ class downloader:
                 exit(0)
 
             time.sleep(20)
+            print("Time to stop running now!")
+            running = False
+            return
 
 
     def remove_thread_from_downloading(self):

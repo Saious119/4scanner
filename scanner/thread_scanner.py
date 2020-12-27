@@ -259,7 +259,8 @@ class thread_scanner:
         """
         Start the scanning/download process.
         """
-        while True:
+        running = True
+        while running:
             if self.quota_mb:
                 self.check_quota()
 
@@ -310,5 +311,8 @@ class thread_scanner:
 
             active_downloads = threading.active_count()-1
             self.logger.info("{0} threads currently downloading.".format(active_downloads))
+            running = False
+            time.sleep(self.wait_time)
+            return
             self.logger.info("Searching again in {0} minutes!".format(str(int(self.wait_time / 60))))
             time.sleep(self.wait_time)
