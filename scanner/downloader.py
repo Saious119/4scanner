@@ -56,7 +56,7 @@ class downloader:
 
         self.downloaded_log = "{0}/{1}4scanner_dld-{2}-{3}".format(self.tmp_dir, self.curr_time, self.pid, self.thread)
 
-        self.out_dir = os.path.join(output_folder, 'downloads', imageboard, board, folder, str(thread_nb))
+        self.out_dir = os.path.join(output_folder, 'downloads')
 
         self.thread_nb = thread_nb
         self.imageboard = imageboard
@@ -149,9 +149,9 @@ class downloader:
                 exit(0)
 
             time.sleep(20)
-            print("Time to stop running now!")
-            running = False
-            return
+            print("Image download completed for this tread!")
+            #running = False
+            #return
 
 
     def remove_thread_from_downloading(self):
