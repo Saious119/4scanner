@@ -26,17 +26,8 @@ def create_conf_dir():
     """
     Create home config directory
     """
-    if os.path.isdir(os.path.expanduser("~/.4scanner")):
-        pass
-    elif os.getenv("XDG_DATA_HOME"):
-        if not os.path.isdir(os.path.join(os.getenv("XDG_DATA_HOME"), "4scanner")):
-            os.mkdir(os.path.join(os.getenv("XDG_DATA_HOME"), "4scanner"))
-    elif os.getenv("APPDATA"):
-        if not os.path.isdir(os.path.join(os.getenv("APPDATA"), "4scanner")):
-            os.mkdir(os.path.join(os.getenv("APPDATA"), "4scanner"))
-    else:
-        if not os.path.isdir(os.path.join(os.getenv("HOME"), ".local", "share", "4scanner")):
-            os.makedirs(os.path.join(os.getenv("HOME"), ".local", "share", "4scanner"))
+    if not os.path.isdir(os.path.expanduser("~/.4scanner")):
+        os.mkdir(os.path.expanduser("~/.4scanner"))
 
 create_conf_dir()
 db_init()
