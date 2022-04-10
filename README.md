@@ -17,6 +17,10 @@ You can create an issue if you want to see other imageboards supported
 
 (4scanner is ONLY compatible with python3+)
 
+### for UwUBot
+`sudo python3 setup.py build`
+`sudo python3 setup.py install`
+
 ## Running via Docker
 Create a config (detail below), name it config.json and drop it where you would like to download the images. Then run a container:
 
